@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Identidad Visual Startup — Frida</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --cream:#F5F0E8;--warm-white:#FDFAF5;--ink:#1A1714;--ink-soft:#4A453F;--ink-muted:#9A9490;--accent:#C4744A;--accent-light:#E8C4A8;--accent-dark:#8B4A28;--nav-h:72px;--project-color:#D4C4E4;--project-color-dark:#9A7AB4; }
+  html{scroll-behavior:smooth;}body{font-family:'DM Sans',sans-serif;background:var(--warm-white);color:var(--ink);overflow-x:hidden;}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(253,250,245,.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(26,23,20,.06);transition:box-shadow .3s;}
+  nav.scrolled{box-shadow:0 2px 24px rgba(26,23,20,.08);}
+  .nav-logo{font-family:'DM Serif Display',serif;font-size:22px;letter-spacing:-.5px;color:var(--ink);text-decoration:none;}
+  .nav-back{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--ink-soft);text-decoration:none;transition:color .2s;}.nav-back:hover{color:var(--accent);}.nav-back::before{content:'←';font-size:16px;}
+  .project-hero{padding-top:var(--nav-h);min-height:88vh;display:flex;flex-direction:column;position:relative;overflow:hidden;}
+  .hero-image{flex:1;background:linear-gradient(135deg,var(--project-color) 0%,var(--project-color-dark) 100%);display:flex;align-items:center;justify-content:center;font-size:120px;min-height:480px;position:relative;}
+  .hero-image::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,rgba(253,250,245,.6) 100%);}
+  .hero-meta{padding:56px 48px 0;}
+  .breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink-muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:20px;}
+  .breadcrumb a{color:var(--ink-muted);text-decoration:none;transition:color .2s;}.breadcrumb a:hover{color:var(--accent);}
+  .project-tags{display:flex;gap:10px;margin-bottom:20px;}
+  .tag{padding:5px 14px;border-radius:100px;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;background:rgba(196,116,74,.1);color:var(--accent-dark);}
+  .project-title{font-family:'DM Serif Display',serif;font-size:clamp(40px,5vw,72px);letter-spacing:-2px;line-height:1.05;max-width:800px;margin-bottom:24px;}
+  .project-subtitle{font-size:18px;font-weight:300;line-height:1.7;color:var(--ink-soft);max-width:640px;}
+  .metrics-section{padding:64px 48px;border-bottom:1px solid rgba(26,23,20,.07);}
+  .metrics-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(26,23,20,.07);border-radius:16px;overflow:hidden;}
+  .metric-cell{background:var(--warm-white);padding:32px 28px;transition:background .2s;}.metric-cell:hover{background:var(--cream);}
+  .metric-label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:10px;}
+  .metric-value{font-family:'DM Serif Display',serif;font-size:36px;letter-spacing:-1px;color:var(--ink);}
+  .metric-sub{font-size:13px;color:var(--ink-soft);margin-top:4px;}
+  .details-section{padding:80px 48px;display:grid;grid-template-columns:1fr 2fr;gap:80px;align-items:start;}
+  .sidebar{position:sticky;top:calc(var(--nav-h) + 32px);}
+  .sidebar-block{margin-bottom:36px;}
+  .sidebar-label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:10px;}
+  .sidebar-value{font-size:15px;color:var(--ink);line-height:1.6;}
+  .sidebar-tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px;}
+  .sidebar-tool{padding:5px 12px;border-radius:100px;font-size:12px;border:1px solid rgba(26,23,20,.12);color:var(--ink-soft);}
+  .content-body h2{font-family:'DM Serif Display',serif;font-size:36px;letter-spacing:-.8px;margin-bottom:20px;color:var(--ink);}
+  .content-body p{font-size:16px;line-height:1.8;color:var(--ink-soft);margin-bottom:20px;}
+  .content-body h3{font-size:20px;font-weight:500;color:var(--ink);margin:36px 0 14px;}
+  .gallery-section{padding:0 48px 100px;}
+  .gallery-label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:24px;}
+  .gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .gallery-item{border-radius:16px;overflow:hidden;aspect-ratio:4/3;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:56px;transition:transform .4s ease;cursor:pointer;}
+  .gallery-item:hover{transform:scale(1.02);}
+  .project-nav{padding:48px;border-top:1px solid rgba(26,23,20,.07);display:flex;justify-content:space-between;align-items:center;}
+  .proj-nav-link{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink-soft);transition:color .2s;}.proj-nav-link:hover{color:var(--accent);}.proj-nav-link.next{flex-direction:row-reverse;}
+  .proj-nav-thumb{width:64px;height:48px;border-radius:10px;background:var(--cream);display:flex;align-items:center;justify-content:center;font-size:22px;}
+  .proj-nav-dir{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:4px;}
+  .proj-nav-title{font-size:15px;font-weight:500;}
+  footer{padding:32px 48px;border-top:1px solid rgba(26,23,20,.06);display:flex;justify-content:space-between;align-items:center;color:var(--ink-muted);font-size:13px;}
+  footer a{color:var(--ink-muted);text-decoration:none;transition:color .2s;}.footer a:hover{color:var(--accent);}
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}.reveal.visible{opacity:1;transform:translateY(0);}
+  @media(max-width:900px){nav,footer{padding-left:20px;padding-right:20px;}.hero-meta,.metrics-section,.gallery-section,.project-nav{padding-left:20px;padding-right:20px;}.details-section{grid-template-columns:1fr;padding:48px 20px;}.sidebar{position:static;}.metrics-grid{grid-template-columns:1fr 1fr;}.gallery-grid{grid-template-columns:1fr;}.project-title{font-size:36px;}}
+</style>
+</head>
+<body>
+<nav id="nav">
+  <a href="index.html" class="nav-logo">Frida.</a>
+  <a href="index.html#proyectos" class="nav-back">Todos los proyectos</a>
+</nav>
+
+<section class="project-hero">
+  <div class="hero-image">✨</div>
+  <div class="hero-meta">
+    <div class="breadcrumb"><a href="index.html">Inicio</a> <span>/</span> <a href="index.html#proyectos">Proyectos</a> <span>/</span> Identidad Visual</div>
+    <div class="project-tags"><span class="tag">Branding</span><span class="tag">Identidad Visual</span><span class="tag">2023</span></div>
+    <h1 class="project-title">Identidad Visual para Startup Edtech</h1>
+    <p class="project-subtitle">Sistema de identidad completo para una startup de tecnología educativa que escaló exitosamente a 3 mercados latinoamericanos con una marca coherente y memorable.</p>
+  </div>
+</section>
+
+<section class="metrics-section reveal">
+  <div class="metrics-grid">
+    <div class="metric-cell"><div class="metric-label">Mercados</div><div class="metric-value">3</div><div class="metric-sub">LATAM en 8 meses</div></div>
+    <div class="metric-cell"><div class="metric-label">Brand recall</div><div class="metric-value">78%</div><div class="metric-sub">reconocimiento espontáneo</div></div>
+    <div class="metric-cell"><div class="metric-label">Piezas diseñadas</div><div class="metric-value">200+</div><div class="metric-sub">en sistema de marca</div></div>
+    <div class="metric-cell"><div class="metric-label">Tiempo</div><div class="metric-value">6 semanas</div><div class="metric-sub">de concepto a manual</div></div>
+  </div>
+</section>
+
+<section class="details-section">
+  <div class="sidebar reveal">
+    <div class="sidebar-block"><div class="sidebar-label">Mi rol</div><div class="sidebar-value">Brand Designer — desarrollé la estrategia visual, logotipo, sistema tipográfico, paleta de color y manual de marca completo.</div></div>
+    <div class="sidebar-block"><div class="sidebar-label">Objetivo</div><div class="sidebar-value">Crear una identidad que proyectara innovación y confianza simultáneamente, capaz de funcionar en contextos digitales y físicos en múltiples países.</div></div>
+    <div class="sidebar-block"><div class="sidebar-label">Herramientas</div><div class="sidebar-tools"><span class="sidebar-tool">Illustrator</span><span class="sidebar-tool">InDesign</span><span class="sidebar-tool">Figma</span><span class="sidebar-tool">Photoshop</span></div></div>
+    <div class="sidebar-block"><div class="sidebar-label">Cliente</div><div class="sidebar-value">Startup EdTech — Pre-Seed (MX)</div></div>
+  </div>
+  <div class="content-body reveal">
+    <h2>El desafío</h2>
+    <p>La startup llegó sin identidad visual definida: un nombre, una idea poderosa y la necesidad de parecer establecida para levantar inversión y atraer instituciones educativas. El brief pedía "moderno pero accesible, tecnológico pero humano" — esa tensión creativa fue el punto de partida.</p>
+    <p>El reto adicional era diseñar algo que funcionara tanto en una presentación para inversores en CDMX como en material impreso para colegios en Bogotá y Buenos Aires, con sus diferentes sensibilidades culturales.</p>
+    <h3>Estrategia y concepto</h3>
+    <p>Después de workshops de posicionamiento con los fundadores y análisis del competidor, identifiqué el espacio visual desocupado: mientras las edtech usaban azules corporativos o amarillos llamativos, el territorio cálido-intelectual estaba libre. Esto llevó a una paleta basada en ámbar dorado y verde olivo con blanco marfil.</p>
+    <p>El logotipo se construye a partir de una forma geométrica que representa simultáneamente un libro abierto, una trayectoria de aprendizaje y una señal de conexión — tres conceptos centrales del producto.</p>
+    <h3>Sistema y aplicaciones</h3>
+    <p>Entregué un manual de marca de 80 páginas con reglas de uso, variantes del logo, sistema de íconos personalizado de 40 piezas, plantillas para presentaciones, redes sociales, material impreso y guías de fotografía. El sistema fue adoptado íntegramente por el equipo interno sin necesidad de revisiones.</p>
+  </div>
+</section>
+
+<section class="gallery-section">
+  <p class="gallery-label reveal">Galería del proyecto</p>
+  <div class="gallery-grid">
+    <div class="gallery-item reveal" style="background:linear-gradient(135deg,#D4C4E4,#B4A0CC);">✨</div>
+    <div class="gallery-item reveal" style="background:linear-gradient(135deg,#C8B8DC,#A890C0);">🎨</div>
+    <div class="gallery-item reveal" style="background:linear-gradient(135deg,#DDD0EE,#BBAAd4);">📐</div>
+    <div class="gallery-item reveal" style="background:linear-gradient(135deg,#C0B0D8,#9A80BC);">📖</div>
+  </div>
+</section>
+
+<nav class="project-nav">
+  <a href="proyecto-02.html" class="proj-nav-link">
+    <div class="proj-nav-thumb" style="background:linear-gradient(135deg,#C4D4C4,#7A9A7A);">📊</div>
+    <div><div class="proj-nav-dir">Anterior</div><div class="proj-nav-title">Dashboard Financiero</div></div>
+  </a>
+  <a href="proyecto-04.html" class="proj-nav-link next">
+    <div class="proj-nav-thumb" style="background:linear-gradient(135deg,#E4D4C4,#B48A6A);">🛒</div>
+    <div style="text-align:right;"><div class="proj-nav-dir">Siguiente</div><div class="proj-nav-title">Plataforma de Comercio</div></div>
+  </a>
+</nav>
+
+<footer><span>© 2024 Frida — Diseñadora de Producto</span><a href="index.html">Volver al inicio</a></footer>
+
+<script>
+  const nav=document.getElementById('nav');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>20);});
+  const reveals=document.querySelectorAll('.reveal');const obs=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*90);obs.unobserve(e.target);}});},{threshold:0.08,rootMargin:'0px 0px -32px 0px'});
+  reveals.forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
