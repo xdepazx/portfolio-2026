@@ -147,6 +147,14 @@
     font-size: 56px; transition: transform .4s ease;
     cursor: pointer;
   }
+
+   .gallery-item-big {
+    border-radius: 16px; overflow: hidden; 
+    background: var(--cream); display: block; align-items: center; justify-content: center;
+    font-size: 56px; transition: transform .4s ease;
+    cursor: pointer;
+  }
+
   .gallery-item:hover { transform: scale(1.02); }
   .gallery-item:nth-child(1) { font-size: 64px; }
   .gallery-item.tall { aspect-ratio: 4/5; }
@@ -299,7 +307,9 @@
 <section class="gallery-section">
   <p class="gallery-label reveal">Galería del proyecto</p>
   <div class="gallery-grid-big">
-    <div class="gallery-item reveal" style="background: url(./Recursos/Imagenes/Slide_Grid_5_AM.png) no-repeat center center; background-size: contain;"></div>
+    <div class="gallery-item-big reveal" style="background: linear-gradient(135deg, #D4C8B8, #C0A880);"> 
+      <img src="Recursos/Imagenes/Slide_Grid_5_AM.png" style="object-fit: contain; width:100%;">
+    </div>
   </div> 
    <div class="gallery-grid">
     <div class="gallery-item reveal" style="background: linear-gradient(135deg, #D4C8B8, #C0A880);">📱</div>
