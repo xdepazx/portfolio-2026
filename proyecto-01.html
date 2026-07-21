@@ -94,7 +94,7 @@
     border-bottom: 1px solid rgba(26,23,20,.07);
   }
   .metrics-grid {
-    display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
     background: rgba(26,23,20,.07); border-radius: 16px; overflow: hidden;
   }
   .metric-cell {
@@ -137,6 +137,9 @@
   .gallery-label { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 24px; }
   .gallery-grid {
     display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  }
+   .gallery-grid-big {
+    display: grid; grid-template-columns: 1fr; gap: 16px;
   }
   .gallery-item {
     border-radius: 16px; overflow: hidden; aspect-ratio: 4/3;
@@ -235,7 +238,7 @@
   <div class="sidebar reveal">
     <div class="sidebar-block">
       <div class="sidebar-label">Mi rol</div>
-      <div class="sidebar-value">Responsable de research, wireframing, prototipado y desarrollo.</div>
+      <div class="sidebar-value">Responsable de análisis, wireframing, prototipado y desarrollo en CRM.</div>
     </div>
     <div class="sidebar-block">
       <div class="sidebar-label">Objetivo</div>
@@ -245,6 +248,10 @@
       <div class="sidebar-label">Herramientas</div>
       <div class="sidebar-tools">
         <span class="sidebar-tool">Figma</span>
+        <span class="sidebar-tool">Salesforce</span>
+        <span class="sidebar-tool">HTML</span>
+        <span class="sidebar-tool">CSS</span>
+        <span class="sidebar-tool">AMPscript</span>
         <span class="sidebar-tool">Miro</span>
         <span class="sidebar-tool">Adobe Suite</span>
         <span class="sidebar-tool">GA4</span>
@@ -268,10 +275,10 @@
     <br>
     - Auditoría de Conversión: Analizamos el histórico de las +10 campañas activas para identificar qué elementos de diseño (disposición de botones, uso de imágenes, jerarquía visual) y qué subjects (asuntos) generaban mejor respuesta.
     <br>
-    - Aislamiento de Patrones de Éxito: Filtramos los componentes de UI y las estructuras de información que ya tenían un buen rendimiento en clics y conversión para utilizarlos como nuestra base sólida de diseño.</p>
+    - Reconocimiento de Patrones de Éxito: Filtramos los componentes de UI y las estructuras de información que ya tenían un buen rendimiento en clics y conversión para utilizarlos como nuestra base sólida de diseño.</p>
   
     <h3>UX Strategy & Personalización</h3>
-    <p>Con los datos en la mano, redefinimos la arquitectura de la información y la estrategia de contacto para poner al usuario en el centro.
+    <p>Con los datos en la mano, redefinimos la arquitectura de la información y la estrategia de contacto para poner al <b>usuario en el centro</b>.
 <br>
 - Reducción de Carga Cognitiva: Eliminamos el "bombardeo" de correos genéricos. Redujimos el número de impactos visuales priorizando la calidad sobre la cantidad.
 <br>
@@ -292,7 +299,7 @@
 <section class="gallery-section">
   <p class="gallery-label reveal">Galería del proyecto</p>
   <div class="gallery-grid">
-    <div class="gallery-item reveal" style="background: linear-gradient(135deg, #E8D5C4, #D4B896);">🌿</div>
+    <div class="gallery-item-big reveal" style="background: url(./Recursos/Imagenes/Slide_Grid_5_AM.png) no-repeat center center; background-size: contain;"></div>
     <div class="gallery-item reveal" style="background: linear-gradient(135deg, #D4C8B8, #C0A880);">📱</div>
     <div class="gallery-item reveal" style="background: linear-gradient(135deg, #E0D0BC, #C8A878);">🎨</div>
     <div class="gallery-item reveal" style="background: linear-gradient(135deg, #DDD0C0, #BCA068);">✦</div>
