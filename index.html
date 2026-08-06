@@ -12,22 +12,23 @@
   :root {
     --cream: #F5F0E8;
     --warm-white: #FDFAF5;
-    --ink: #1A1714;
+    --ink: white;
     --ink-soft: #4A453F;
     --ink-muted: #9A9490;
-    --accent: #7A0A28;
+    --accent: #98C1D9;
     --accent-light: #E3F2FD;
     --accent-dark: #7D82B8;
     --sage: #7A8C7E;
     --nav-h: 72px;
-    --light-yellow: rgba(232, 219, 125, 0.3):
+    --light-yellow: rgba(232, 219, 125, 0.3);
+    --vino: #7A0A28;
   }
 
   html { scroll-behavior: smooth; }
 
   body {
     font-family: 'DM Sans', sans-serif;
-    background: var(--warm-white);
+    background: var(--vino);
     color: var(--ink);
     overflow-x: hidden;
   }
@@ -121,12 +122,13 @@
   }
   .btn-primary {
     padding: 16px 36px; border-radius: 100px;
-    background: var(--ink); color: var(--warm-white);
+    border: 1px solid var(--accent-light); 
+    background: transparent; color: var(--accent-light);
     font-size: 15px; font-weight: 500; text-decoration: none;
     transition: background .25s, transform .2s, box-shadow .2s;
   }
   .btn-primary:hover {
-    background: var(--accent); transform: translateY(-2px);
+    background: var(--accent-dark); transform: translateY(-2px);
     box-shadow: 0 12px 32px rgba(196,116,74,.3);
   }
   .btn-ghost {
