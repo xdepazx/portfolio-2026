@@ -39,7 +39,7 @@
     height: var(--nav-h);
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 48px;
-    background: rgba(253, 250, 245, 0.88);
+    background: var(--accent);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid rgba(26,23,20,.06);
     transition: box-shadow .3s;
@@ -67,7 +67,8 @@
   .nav-cta {
     font-size: 13px; font-weight: 500;
     padding: 10px 22px; border-radius: 100px;
-    background: var(--ink); color: var(--warm-white) !important;
+    background: transparent; color: var(--warm-white) !important;
+    border: 1px solid var(--warm-white);
     text-decoration: none; transition: background .2s, transform .2s;
   }
   .nav-cta:hover { background: var(--accent) !important; transform: translateY(-1px); }
