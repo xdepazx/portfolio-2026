@@ -21,6 +21,36 @@
     --project-color: #E8D5C4;
     --project-color-dark: #C4A882;
   }
+   @font-face {
+    font-family: 'Avantt';
+    src: url('./Recursos/fonts/Avantt.ttf') format(ttf);
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+   @font-face {
+    font-family: 'Avantt';
+    src: url('./Recursos/fonts/Avantt.ttf') format(ttf);
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+   @font-face {
+    font-family: 'Avantt';
+    src: url('./Recursos/fonts/Avantt.ttf') format(ttf);
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Avantt';
+    src: url('./Recursos/fonts/Avantt.ttf') format(ttf);
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+  }
   html { scroll-behavior: smooth; }
   body { font-family: 'DM Sans', sans-serif; background: var(--warm-white); color: var(--ink); overflow-x: hidden; }
 
@@ -35,7 +65,7 @@
     transition: box-shadow .3s;
   }
   nav.scrolled { box-shadow: 0 2px 24px rgba(26,23,20,.08); }
-  .nav-logo { font-family: 'DM Serif Display', serif; font-size: 22px; letter-spacing: -.5px; color: var(--ink); text-decoration: none; }
+  .nav-logo { font-family: 'Avantt', sans-serif;  font-weight: 600; font-size: 22px; letter-spacing: -.5px; color: var(--ink); text-decoration: none; }
   .nav-back {
     display: flex; align-items: center; gap: 8px;
     font-size: 13px; color: var(--ink-soft); text-decoration: none;
@@ -82,7 +112,8 @@
     background: rgba(196,116,74,.1); color: var(--accent-dark);
   }
   .project-title {
-    font-family: 'DM Serif Display', serif;
+    font-family: 'Avantt', sans-serif;
+    font-weight: 600;
     font-size: clamp(40px, 5vw, 72px); letter-spacing: -2px; line-height: 1.05;
     max-width: 800px; margin-bottom: 24px;
   }
@@ -122,7 +153,8 @@
   }
 
   .content-body h2 {
-    font-family: 'DM Serif Display', serif;
+    font-family: 'Avantt', sans-serif;
+    font-weight: 600;
     font-size: 36px; letter-spacing: -.8px; margin-bottom: 20px; color: var(--ink);
   }
   .content-body p {

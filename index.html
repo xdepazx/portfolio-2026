@@ -156,8 +156,8 @@
   }
   .btn-primary {
     padding: 16px 36px; border-radius: 100px;
-    border: 1px solid var(--accent-light); 
-    background: transparent; color: var(--accent-light);
+    border: 1px solid var(--accent); 
+    background: transparent; color: var(--accent);
     font-size: 15px; font-weight: 500; text-decoration: none;
     transition: background .25s, transform .2s, box-shadow .2s;
   }
@@ -221,7 +221,8 @@
     color: var(--accent); margin-bottom: 12px;
   }
   .section-title {
-    font-family: 'DM Serif Display', serif;
+    font-family: 'Avantt', sans-serif;
+    font-weight: 600;
     font-size: 48px; letter-spacing: -1px; color: var(--ink);
   }
   .projects-grid {
@@ -231,12 +232,13 @@
   }
   .project-card {
     border-radius: 20px; overflow: hidden;
-    background: #eef8d245;
+    background: transparent;
     position: relative;
     cursor: pointer;
     text-decoration: none; color: inherit;
     transition: transform .35s ease, box-shadow .35s ease;
     display: block;
+    border: 1px solid #D9D9D9;
   }
   .project-card:hover { transform: translateY(-6px); box-shadow: 0 24px 64px rgba(26,23,20,.12); }
   .project-card:nth-child(1) { grid-column: span 7; }
@@ -269,7 +271,7 @@
   .card-tag {
     font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
     padding: 4px 12px; border-radius: 100px;
-    background: #E3F2FD; color: var(--accent-dark);
+    background: #FFF; color: var(--accent-dark);
   }
   .card-year {
     font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
@@ -416,7 +418,7 @@
     <a href="#proyectos">Proyectos</a>
     <a href="#sobre-mi">Sobre mí</a>
    <a href="#contacto">Contacto</a>
-    <a href="#contacto" class="nav-cta">Trabajemos juntos</a>
+    <a href="#contacto" class="btn-ghost">Trabajemos juntos</a>
   </div>
 </nav>
 

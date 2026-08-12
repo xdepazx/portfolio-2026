@@ -13,11 +13,41 @@
     --ink-muted: #9A9490; --accent: #7A0A28; --accent-light: #E8C4A8; --accent-dark: #8B4A28; --nav-h: 72px;
     --project-color: #C4D4C4; --project-color-dark: #7A9A7A;
   }
+   @font-face {
+    font-family: 'Avantt';
+    src: url('./Recursos/fonts/Avantt.ttf') format(ttf);
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+   @font-face {
+    font-family: 'Avantt';
+    src: url('./Recursos/fonts/Avantt.ttf') format(ttf);
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+   @font-face {
+    font-family: 'Avantt';
+    src: url('./Recursos/fonts/Avantt.ttf') format(ttf);
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: 'Avantt';
+    src: url('./Recursos/fonts/Avantt.ttf') format(ttf);
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+  }
   html { scroll-behavior: smooth; }
   body { font-family: 'DM Sans', sans-serif; background: var(--warm-white); color: var(--ink); overflow-x: hidden; }
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--nav-h); display: flex; align-items: center; justify-content: space-between; padding: 0 48px; background: rgba(253,250,245,.88); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(26,23,20,.06); transition: box-shadow .3s; }
   nav.scrolled { box-shadow: 0 2px 24px rgba(26,23,20,.08); }
-  .nav-logo { font-family: 'DM Serif Display', serif; font-size: 22px; letter-spacing: -.5px; color: var(--ink); text-decoration: none; }
+  .nav-logo { font-family: 'Avantt', sans-serif; font-weight: 600; font-size: 22px; letter-spacing: -.5px; color: var(--ink); text-decoration: none; }
   .nav-back { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--ink-soft); text-decoration: none; transition: color .2s; }
   .nav-back:hover { color: var(--accent); }
   .nav-back::before { content: '←'; font-size: 16px; }
@@ -30,14 +60,14 @@
   .breadcrumb a:hover { color: var(--accent); }
   .project-tags { display: flex; gap: 10px; margin-bottom: 20px; }
   .tag { padding: 5px 14px; border-radius: 100px; font-size: 12px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; background: rgba(196,116,74,.1); color: var(--accent-dark); }
-  .project-title { font-family: 'DM Serif Display', serif; font-size: clamp(40px, 5vw, 72px); letter-spacing: -2px; line-height: 1.05; max-width: 800px; margin-bottom: 24px; }
+  .project-title { font-family: 'Avantt', sans-serif; font-weight: 600; font-size: clamp(40px, 5vw, 72px); letter-spacing: -2px; line-height: 1.05; max-width: 800px; margin-bottom: 24px; }
   .project-subtitle { font-size: 18px; font-weight: 300; line-height: 1.7; color: var(--ink-soft); max-width: 640px; }
   .metrics-section { padding: 64px 48px; border-bottom: 1px solid rgba(26,23,20,.07); }
   .metrics-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 1px; background: rgba(26,23,20,.07); border-radius: 16px; overflow: hidden; }
   .metric-cell { background: var(--warm-white); padding: 32px 28px; transition: background .2s; }
   .metric-cell:hover { background: var(--cream); }
   .metric-label { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 10px; }
-  .metric-value { font-family: 'DM Serif Display', serif; font-size: 36px; letter-spacing: -1px; color: var(--ink); }
+  .metric-value { font-family: 'Avantt', sans-serif; font-weight: 600; font-size: 36px; letter-spacing: -1px; color: var(--ink); }
   .metric-sub { font-size: 13px; color: var(--ink-soft); margin-top: 4px; }
   .details-section { padding: 80px 48px; display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: start; }
   .sidebar { position: sticky; top: calc(var(--nav-h) + 32px); }
@@ -46,7 +76,7 @@
   .sidebar-value { font-size: 15px; color: var(--ink); line-height: 1.6; }
   .sidebar-tools { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
   .sidebar-tool { padding: 5px 12px; border-radius: 100px; font-size: 12px; border: 1px solid rgba(26,23,20,.12); color: var(--ink-soft); }
-  .content-body h2 { font-family: 'DM Serif Display', serif; font-size: 36px; letter-spacing: -.8px; margin-bottom: 20px; color: var(--ink); }
+  .content-body h2 { font-family: 'Avantt', sans-serif; font-size: 36px; letter-spacing: -.8px; margin-bottom: 20px; color: var(--ink); }
   .content-body p { font-size: 16px; line-height: 1.8; color: var(--ink-soft); margin-bottom: 20px; }
   .content-body h3 { font-size: 20px; font-weight: 500; color: var(--ink); margin: 36px 0 14px; }
   .gallery-section { padding: 0 48px 100px; }
